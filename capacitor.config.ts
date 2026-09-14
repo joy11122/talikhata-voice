@@ -16,7 +16,7 @@ const config: CapacitorConfig = {
   appId: 'com.talikhata.voice',
   appName: 'TaliKhata Voice',
   webDir: 'public',
-  bundledWebRuntime: false,
+  
   server: serverUrl
     ? {
         url: serverUrl,

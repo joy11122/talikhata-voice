@@ -1,0 +1,3 @@
+import {z} from 'zod';
+const Env=z.object({MONGODB_URI:z.string().min(1),AUTH_SECRET:z.string().min(32),AUTH_TRUST_HOST:z.string().optional(),NEXT_PUBLIC_APP_URL:z.string().url().optional(),GOOGLE_CLIENT_ID:z.string().optional(),GOOGLE_CLIENT_SECRET:z.string().optional(),OPENAI_API_KEY:z.string().optional(),OPENAI_VOICE_MODEL:z.string().default('gpt-4.1-mini')});
+export function getEnv(){return Env.parse({MONGODB_URI:process.env.MONGODB_URI,AUTH_SECRET:process.env.AUTH_SECRET,AUTH_TRUST_HOST:process.env.AUTH_TRUST_HOST,NEXT_PUBLIC_APP_URL:process.env.NEXT_PUBLIC_APP_URL,GOOGLE_CLIENT_ID:process.env.GOOGLE_CLIENT_ID,GOOGLE_CLIENT_SECRET:process.env.GOOGLE_CLIENT_SECRET,OPENAI_API_KEY:process.env.OPENAI_API_KEY,OPENAI_VOICE_MODEL:process.env.OPENAI_VOICE_MODEL})}
